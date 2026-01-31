@@ -57,4 +57,16 @@
       port: 3000,
       open: true,
     },
+    server: {
+  host: true,
+  port: 5173,
+  strictPort: true,
+  proxy: {
+    '/api': {
+      target: 'http://localhost:4000',
+      changeOrigin: true
+    }
+  }
+},
+
   });
