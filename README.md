@@ -1,4 +1,4 @@
-# FineBank – Personal Finance Web App
+# Personal Finance Web 
 
 This project includes:
 - **Frontend**: React + Vite
