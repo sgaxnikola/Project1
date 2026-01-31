@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+server/node_modules/
+
+# build
+dist/
+server/dist/
+
+# env
+.env
+server/.env
+*.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# sqlite db (do not commit)
+server/data/*.db
+server/data/*.db-journal
+server/data/*.db-wal
+server/data/*.db-shm
+
+# OS
+.DS_Store
+Thumbs.db
