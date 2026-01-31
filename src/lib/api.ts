@@ -1,6 +1,8 @@
 export type ApiError = { message?: string };
 
-const BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:4000';
+// In dev (including Codespaces), default to relative URL so Vite proxy can handle /api -> backend.
+// In production, you can still set VITE_API_URL if you deploy frontend + backend separately.
+const BASE_URL = (import.meta as any).env?.VITE_API_URL ?? '';
 
 async function readErrorMessage(res: Response): Promise<string> {
   try {
@@ -31,7 +33,6 @@ export async function apiRequest<T>(
     throw new Error(msg);
   }
 
-  // 204
   if (res.status === 204) return undefined as unknown as T;
   return (await res.json()) as T;
 }
@@ -39,3 +40,4 @@ export async function apiRequest<T>(
 export function apiUrl() {
   return BASE_URL;
 }
+
