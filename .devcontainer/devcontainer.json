@@ -1,0 +1,11 @@
+{
+  "name": "Project1 (React + Express + SQLite)",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "forwardPorts": [5173, 4000],
+  "portsAttributes": {
+    "5173": { "label": "Frontend (Vite)", "onAutoForward": "openBrowser" },
+    "4000": { "label": "Backend (API)", "onAutoForward": "notify" }
+  },
+  "postCreateCommand": "bash -lc \"cp -n .env.example .env || true; cp -n server/.env.example server/.env || true; npm ci; cd server && npm ci\"",
+  "postAttachCommand": "bash -lc \"npm run dev:full\""
+}
